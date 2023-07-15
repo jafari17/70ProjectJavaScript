@@ -26,7 +26,7 @@ link.addEventListener('click', function(e){
 
 ul.addEventListener('click', function(e){
     if(e.target.className === 'delete'){
-        console.log(e.target.parentElement.children[0].textContent)
+        // console.log(e.target.parentElement.children[0].textContent)
         e.target.parentElement.remove()
         removeFromLocalStorage(e.target.parentElement.children[0].textContent)
     }
@@ -117,4 +117,3 @@ function removeFromLocalStorage(task){
 }
 
 
-console.log(inputText)
