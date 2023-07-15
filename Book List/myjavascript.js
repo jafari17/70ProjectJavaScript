@@ -1,8 +1,10 @@
-const inputText = document.querySelector("#add-book input")
-const link = document.querySelector(".button")
-const ul = document.querySelector("ul")
-const checkBox = document.querySelector('#hide input')
-const spanDelete = `<span class="delete">حذف</span>`
+const inputText = document.querySelector("#add-book input");
+const link = document.querySelector(".button");
+const ul = document.querySelector("ul");
+const checkBox = document.querySelector('#hide input');
+const inputSearch = document.querySelector("#search-books input");
+const spanDelete = `<span class="delete">حذف</span>`;
+
 
 link.addEventListener('click', function(e){
     const spanName = document.createElement("span")
@@ -54,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function(e){
 
     }
 
-})
+});
 
 checkBox.addEventListener('change', function(e){
     if(checkBox.checked === true){
@@ -65,6 +67,19 @@ checkBox.addEventListener('change', function(e){
         ul.style.display = 'block';
     }
 });
+
+
+inputSearch.addEventListener('keyup', function(e){
+    for(let book of ul.children) {
+        if(book.firstElementChild.textContent.indexOf
+            (inputSearch.value) !== -1){
+
+                book.style.display = 'block';
+        }else {
+                book.style.display = 'none';
+        }
+    }    
+})
 
 function storeToLocalStorage(task){
     let tasks
